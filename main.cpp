@@ -102,7 +102,7 @@ bool countWinners(string field)
         countPetyaWin++;
     if (findDiagWinner(field) == "O")
         countVasyaWin++;
-    if (countPetyaWin == 1 && countVasyaWin == 0)
+    if (countPetyaWin > 0 && countPetyaWin <= 2 && countVasyaWin == 0)
         return true;
     else if (countVasyaWin == 1 && countPetyaWin == 0)
         return true;
@@ -128,7 +128,7 @@ bool correctSymb(string field)
 
 bool countVal(string field)
 {
-    if (winner(field) == "X" && count(field, 'X') > count(field, 'O'))
+    if (winner(field) == "X" && count(field, 'X') == count(field, 'O') + 1)
         return true;
     if (winner(field) == "O" && count(field, 'O') == count(field, 'X'))
         return true;
